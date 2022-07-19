@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 export default class Task {
   constructor(description, index) {
     this.description = description;
@@ -28,10 +29,12 @@ export default class Task {
     const taskList = document.getElementById('task-list');
 
     const div = document.createElement('div');
-    setAttributes(div, {'class': 'listed-task', 'draggable': 'true','id':`${task.index}`, 'data-completed':`${task.completed}`});
+    setAttributes(div, {
+      class: 'listed-task', draggable: 'true', id: `${task.index}`, 'data-completed': `${task.completed}`,
+    });
 
     const check = document.createElement('input');
-    setAttributes(check, {'class': 'check', 'type': 'checkbox'});
+    setAttributes(check, { class: 'check', type: 'checkbox' });
 
     const input = document.createElement('input');
     input.setAttribute('class', 'input');
@@ -53,5 +56,5 @@ export default class Task {
 }
 
 const setAttributes = (el, attrs) => {
-  Object.keys(attrs).forEach(key => el.setAttribute(key, attrs[key]));
-}
+  Object.keys(attrs).forEach((key) => el.setAttribute(key, attrs[key]));
+};
