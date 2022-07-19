@@ -116,9 +116,11 @@ checked.forEach((check) => {
     if (checked) {
       tasks[(id - 1)].completed = true;
       e.target.nextSibling.style.textDecoration = 'line-through';
+      e.target.nextSibling.style.color = 'rgba(0, 0, 0, 0.6)';
     } else if (!checked) {
       tasks[(id - 1)].completed = false;
       e.target.nextSibling.style.textDecoration = 'none';
+      e.target.nextSibling.style.color = 'rgba(0, 0, 0, 1)';
     }
     localStorage.setItem('tasks', JSON.stringify(tasks));
     const completed = tasks.filter((t) => t.completed === true);
