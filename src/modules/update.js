@@ -28,14 +28,10 @@ export default class Task {
     const taskList = document.getElementById('task-list');
 
     const div = document.createElement('div');
-    div.setAttribute('draggable', 'true');
-    div.setAttribute('class', 'listed-task');
-    div.setAttribute('id', `${task.index}`);
-    div.setAttribute('completed', `${task.completed}`);
+    setAttributes(div, {'class': 'listed-task', 'draggable': 'true','id':`${task.index}`, 'data-completed':`${task.completed}`});
 
     const check = document.createElement('input');
-    check.setAttribute('type', 'checkbox');
-    check.setAttribute('class', 'check');
+    setAttributes(check, {'class': 'check', 'type': 'checkbox'});
 
     const input = document.createElement('input');
     input.setAttribute('class', 'input');
@@ -54,4 +50,8 @@ export default class Task {
     div.append(check, input, i);
     taskList.appendChild(div);
   }
+}
+
+const setAttributes = (el, attrs) => {
+  Object.keys(attrs).forEach(key => el.setAttribute(key, attrs[key]));
 }
